@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { NgToastService } from "ng-angular-popup";
 
 import { Ifood } from "./ifood";
 import { OrderComponent } from "./order.component";
@@ -242,16 +243,20 @@ import { StateService } from "./state.service";
 export class MenuComponent {
   food!: Ifood[];
 
-  constructor(private service: StateService, ) {
+  constructor(private service: StateService, private toast: NgToastService) {
     this.service.bSubject.subscribe((fd: Ifood[])=> {
       this.food = fd;
       console.log(this.food);
     });
   }
+  showSuccess() {
+    this.toast.success({detail:"SUCCESS",summary:'Your Success Message',duration:5000});
+  }
+ 
 
   order(tr: string) {
     console.log(tr);
-
+   this.showSuccess()
     
   }
 }
