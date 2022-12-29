@@ -1,4 +1,5 @@
 const User = require("../models/users");
+const { ObjectId } = require("mongodb");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 let SECRET;
@@ -49,7 +50,7 @@ exports.signup = async (req, res, next) => {
   req.body.password = await bcrypt.hash(req.body.password, 10);
   const newUser = new User(req.body);
   newUser.orders = [];
-  newUser.role = customer;
+  newUser.role = "customer";
   try {
     await newUser.save();
     res.status(201).json({ success: true, data: newUser });
@@ -72,8 +73,11 @@ exports.signupAdmin = async (req, res, next) => {
 };
 
 exports.deleteAccount = async (req, res, next) => {
+  const id = ObjectId(req.params.userId);
+  console.log(id);
+
   try {
-    User.findByIdAndDelete(req.params.foodId);
+    await User.findByIdAndDelete(id);
     res.status(200).json({ success: true, data: "Acoount  deleted" });
   } catch (error) {
     res.status(200).json({ success: false, data: "Error deleting Account" });
@@ -82,19 +86,22 @@ exports.deleteAccount = async (req, res, next) => {
 
 exports.addOrder = async (req, res, next) => {
   const order = req.body;
-  console.log(newFood, req.params);
+  // console.log(newFood, req.params);
   try {
-    await User.findOneAndUpdate(req.params.UserId, {
-      $push: { orders: order },
-    });
-
-    //**********************updating the admins order*************************************************
-    await User.findOneAndUpdate(req.params.UserId, admin, {
-      $push: { orders: order },
-    });
+    await User.updateOne(
+      { _id: req.params.userId },
+      {
+        $push: { orders: order },
+      }
+    );
 
     res.status(200).json({ success: true, data: "order updated" });
   } catch (error) {
     res.status(200).json({ success: false, data: "Error updating order" });
   }
+};
+
+exports.getAllCustomers = async (req, res, next) => {
+  const users = await User.find({ role: "customer" });
+  res.status(200).json({ success: true, data: users });
 };

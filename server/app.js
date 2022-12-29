@@ -19,7 +19,12 @@ app.use((err, req, res, next) => {
 });
 
 mongoose.connect("mongodb://127.0.0.1:27017/FinalYearProject").then(() => {
+  console.log("############## DataBase Connected ! ###################");
+  console.log("                    -------------");
+
   app.listen(3000, () => {
-    console.log("Connected !");
+    console.log(
+      "*************** Am Listening at port 3000 *********************************"
+    );
   });
 });

@@ -17,11 +17,14 @@
   },
   "homepage": "https://github.com/asaadsaad/CS569-nov-2022-final-project-g7#readme",
   "dependencies": {
-    "express": "^4.18.2",
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
+    "express": "^4.18.2",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.8.1",
     "mongoose": "^6.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
   }
 }
