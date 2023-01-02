@@ -29,7 +29,7 @@ exports.login = async (req, res, next) => {
         {
           id: user._id,
           email: user.email,
-          iat: Date.now(),
+          role: user.role,
         },
         SECRET
       );
@@ -91,7 +91,7 @@ exports.addOrder = async (req, res, next) => {
     await User.updateOne(
       { _id: req.params.userId },
       {
-        $push: { orders: order },
+        $push: { " ": order },
       }
     );
 

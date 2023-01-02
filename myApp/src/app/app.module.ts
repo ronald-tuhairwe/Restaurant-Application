@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -7,10 +8,10 @@ import { AdminHomeComponent } from "./admin-home.component";
 import { EditFoodComponent } from "./edit-food.component";
 import { AddfoodComponent } from "./addfood.component";
 import { LoginComponent } from "./login.component";
-import { SignupComponent } from "./signup.component";
+
 import { OrderComponent } from "./order.component";
 import { MenuComponent } from "./menu.component";
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from "@angular/forms";
 import { HomeComponent } from "./home.component";
 import { ContactComponent } from "./contact.component";
 import { EventComponent } from "./event.component";
@@ -20,7 +21,10 @@ import { ChefsComponent } from "./chefs.component";
 
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
-import { NgToastModule } from "ng-angular-popup";
+
+import { AddAdminComponent } from "./add-admin.component";
+import { AdminOrdersComponent } from "./admin-orders.component";
+import { ToastrModule } from "ngx-toastr";
 
 @NgModule({
   declarations: [
@@ -29,7 +33,7 @@ import { NgToastModule } from "ng-angular-popup";
     EditFoodComponent,
     AddfoodComponent,
     LoginComponent,
-    SignupComponent,
+
     OrderComponent,
     MenuComponent,
     HomeComponent,
@@ -38,20 +42,25 @@ import { NgToastModule } from "ng-angular-popup";
     BookTableComponent,
     GalleryComponent,
     ChefsComponent,
+    AddAdminComponent,
+    AdminOrdersComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgToastModule,
+    BrowserAnimationsModule, ToastrModule.forRoot(),
     RouterModule.forRoot([
       { path: "", redirectTo: "home", pathMatch: "full" },
       { path: "login", component: LoginComponent },
-      { path: "signUp", component: SignupComponent },
+
       { path: "home", component: HomeComponent },
       { path: "addFood", component: AddfoodComponent },
+
       { path: "adminHome", component: AdminHomeComponent },
+      { path: "addAdmin", component: AddAdminComponent },
+      { path: "adminOrders", component: AdminOrdersComponent },
       { path: "menu", component: MenuComponent },
       { path: "event", component: EventComponent },
       { path: "chefs", component: ChefsComponent },

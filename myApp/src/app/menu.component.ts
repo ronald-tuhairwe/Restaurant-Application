@@ -45,7 +45,7 @@ import { StateService } from "./state.service";
                 {{ fd.price }}
                 <button
                   class="button m-2 is-link is-rounded"
-                  (click)="order(fd.name)"
+                  (click)="order(fd)"
                 >
                   order
                 </button>
@@ -242,11 +242,12 @@ import { StateService } from "./state.service";
 })
 export class MenuComponent {
   food!: Ifood[];
+  orderArray:Ifood[] =[]
 
   constructor(private service: StateService, private toast: NgToastService) {
-    this.service.bSubject.subscribe((fd: Ifood[])=> {
-      this.food = fd;
-      console.log(this.food);
+    this.service.getAllFood().subscribe((fd: any)=> {
+      this.food=fd.data
+     
     });
   }
   showSuccess() {
@@ -254,8 +255,10 @@ export class MenuComponent {
   }
  
 
-  order(tr: string) {
-    console.log(tr);
+  order(item: Ifood) {
+    this.orderArray.push(item)
+    this.service.orderSubject.next(this.orderArray)
+   
    this.showSuccess()
     
   }

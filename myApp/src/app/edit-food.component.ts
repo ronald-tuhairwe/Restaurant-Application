@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { FormBuilder } from "@angular/forms";
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
+import { StateService } from "./state.service";
 
 @Component({
   selector: "app-edit-food",
@@ -18,9 +19,10 @@ import { Router } from "@angular/router";
           data-aos-delay="100"
         >
           <div class="row">
-            <div class="col-lg-4 col-md-6 form-group">
+            <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
               <input
                 type="text"
+                class="form-control"
                 formControlName="name"
                 placeholder="Food Name"
                 required
@@ -57,15 +59,22 @@ import { Router } from "@angular/router";
             ></textarea>
             <div class="validate"></div>
           </div>
-          <div class="mb-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
+          <div class="m-3">
             <div class="sent-message">
-              Your booking request was sent. We will call back or send an Email
-              to confirm your reservation. Thank you!
+              We aim at giving the best Our customers, the happy customers teh
+              Happy restruant and the Happy pockest on you!
             </div>
           </div>
-          <div class="text-center"><button type="submit">Add Food</button></div>
+          <div class="m-2 text-center">
+            <button
+              class="btn-book "
+              style="background-color: #c7a148"
+              type="submit"
+              [disabled]="form.invalid"
+            >
+              Update Food
+            </button>
+          </div>
         </form>
       </div>
     </section>
@@ -80,21 +89,31 @@ export class EditFoodComponent {
     information: [""],
   });
 
-  constructor(private router: Router, private formBuilder: FormBuilder) {}
+  updt!: any;
+
+  constructor(
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private service: StateService,
+    private activate: ActivatedRoute
+  ) {
+    this.updt = this.router.getCurrentNavigation()?.extras.state;
+
+    this.form.patchValue({
+      name: this.updt.name,
+      category: this.updt.category,
+      price: this.updt.price,
+      information: this.updt.information,
+    });
+  }
 
   ngOnInit(): void {}
 
   updateFood() {
-    //to send the data to the backend and
-    // const results = this.form.value;
+    this.service
+      .updateFood(this.updt._id, this.form.value)
+      .subscribe((resp) => alert(resp.data));
 
-    // this.form.reset();
-
-    localStorage.setItem(
-      "USER",
-      JSON.stringify({ status: true, data: "later" })
-    );
-
-    this.router.navigate(["list"]);
+    this.router.navigate(["", "adminHome"]);
   }
 }

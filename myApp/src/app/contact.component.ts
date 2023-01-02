@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
                   <p>Contact Us</p>
                </div>
             </div>
-            <div data-aos="fade-up"> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3423.009364089381!2d75.8663357!3d30.914362399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a8312b7eb6f0b%3A0xac26b878a1cdcdbc!2sBaba%20Than%20Singh%20Chowk%2C%20Baba%20Than%20Singh%20Chowk%2C%20Opposite%20Kalra%20Hospital%2C%20Fatehganj%2C%20Ludhiana%2C%20Punjab%20141008!5e0!3m2!1sen!2sin!4v1657085446837!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+            <!-- <div data-aos="fade-up"> <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3423.009364089381!2d75.8663357!3d30.914362399999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a8312b7eb6f0b%3A0xac26b878a1cdcdbc!2sBaba%20Than%20Singh%20Chowk%2C%20Baba%20Than%20Singh%20Chowk%2C%20Opposite%20Kalra%20Hospital%2C%20Fatehganj%2C%20Ludhiana%2C%20Punjab%20141008!5e0!3m2!1sen!2sin!4v1657085446837!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div> -->
             <div class="container" data-aos="fade-up">
                <div class="row mt-5">
                   <div class="col-lg-4">
