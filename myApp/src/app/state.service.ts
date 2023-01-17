@@ -10,9 +10,7 @@ export class StateService {
   bSubject = new BehaviorSubject<Ifood[]>(INITIAL_STATE);
   orderSubject = new BehaviorSubject<Ifood[]>([]);
 
-  constructor(private http: HttpClient) {
-    
-  }
+  constructor(private http: HttpClient) {}
 
   getAllFood() {
     return this.http.get<Ifood[]>("http://localhost:3000/foods");
@@ -53,7 +51,7 @@ export class StateService {
   }
 
   getAllCustomers() {
-    return this.http.get<{data:Iuser2[]}>("http://localhost:3000/customers");
+    return this.http.get<{ data: Iuser2[] }>("http://localhost:3000/customers");
   }
 
   signUpAdmin(user: any) {
@@ -69,10 +67,38 @@ export class StateService {
     );
   }
 
-  senderOrder(userId:string, food: Ifood[]) {
+  senderOrder(userId: string, food: Ifood[]) {
     return this.http.patch<{ success: boolean; data: string }>(
-      `http://localhost:3000/order/${userId}`,food
+      `http://localhost:3000/order/${userId}`,
+      food
     );
   }
 
+  contactRest(message: any) {
+    return this.http.post<{ success: boolean; data: string }>(
+      "http://localhost:3000/info/contact",
+      message
+    );
+  }
+
+  bookTable(message: any) {
+    return this.http.post<{ success: boolean; data: string }>(
+      "http://localhost:3000/info/bookTable",
+      message
+    );
+  }
+
+  //
+  cleareHistory(id: string) {
+    return this.http.patch<{ success: boolean; data: string }>(
+      "http://localhost:3000/info/clear",
+      id
+    );
+  }
+
+  getAllInfo() {
+    return this.http.get<{ success: boolean; data: any[] }>(
+      "http://localhost:3000/info"
+    );
+  }
 }

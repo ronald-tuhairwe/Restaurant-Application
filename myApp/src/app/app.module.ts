@@ -7,7 +7,7 @@ import { AppComponent } from "./app.component";
 import { AdminHomeComponent } from "./admin-home.component";
 import { EditFoodComponent } from "./edit-food.component";
 import { AddfoodComponent } from "./addfood.component";
-import { LoginComponent } from "./login.component";
+
 
 import { OrderComponent } from "./order.component";
 import { MenuComponent } from "./menu.component";
@@ -25,6 +25,8 @@ import { RouterModule } from "@angular/router";
 import { AddAdminComponent } from "./add-admin.component";
 import { AdminOrdersComponent } from "./admin-orders.component";
 import { ToastrModule } from "ngx-toastr";
+import { InfoComponent } from './info.component';
+import { BookingComponent } from './booking.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,7 @@ import { ToastrModule } from "ngx-toastr";
     AdminHomeComponent,
     EditFoodComponent,
     AddfoodComponent,
-    LoginComponent,
+
 
     OrderComponent,
     MenuComponent,
@@ -44,6 +46,8 @@ import { ToastrModule } from "ngx-toastr";
     ChefsComponent,
     AddAdminComponent,
     AdminOrdersComponent,
+    InfoComponent,
+    BookingComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +57,7 @@ import { ToastrModule } from "ngx-toastr";
     BrowserAnimationsModule, ToastrModule.forRoot(),
     RouterModule.forRoot([
       { path: "", redirectTo: "home", pathMatch: "full" },
-      { path: "login", component: LoginComponent },
+     
 
       { path: "home", component: HomeComponent },
       { path: "addFood", component: AddfoodComponent },
@@ -68,6 +72,8 @@ import { ToastrModule } from "ngx-toastr";
       { path: "contact", component: ContactComponent },
       { path: "edit", component: EditFoodComponent },
       { path: "gallery", component: GalleryComponent },
+      { path: "info", component: InfoComponent },
+      { path: "bookings", component: BookingComponent },
       { path: "order", component: OrderComponent },
     ]),
   ],

@@ -74,11 +74,7 @@ export class AdminHomeComponent {
       this.food = fd.data;
     });
   }
-  // ngDoCheck(): void {
-  //   this.service.getAllFood().subscribe((fd: any) => {
-  //     this.food = fd.data;
-  //   });
-  // }
+  
 
   edit(fd: Ifood) {
     this.router.navigate(["", "edit"], { state: fd });

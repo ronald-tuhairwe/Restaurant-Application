@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { NgToastService } from "ng-angular-popup";
+import { ToastrService } from "ngx-toastr";
 
 import { Ifood } from "./ifood";
 import { OrderComponent } from "./order.component";
@@ -244,22 +245,22 @@ export class MenuComponent {
   food!: Ifood[];
   orderArray:Ifood[] =[]
 
-  constructor(private service: StateService, private toast: NgToastService) {
+  constructor(private service: StateService, private toastr: ToastrService) {
     this.service.getAllFood().subscribe((fd: any)=> {
       this.food=fd.data
      
     });
   }
-  showSuccess() {
-    this.toast.success({detail:"SUCCESS",summary:'Your Success Message',duration:5000});
-  }
- 
+  
+ showCase(){
+  this.toastr.success("order placed")
+ }
 
   order(item: Ifood) {
     this.orderArray.push(item)
     this.service.orderSubject.next(this.orderArray)
-   
-   this.showSuccess()
+   this.showCase()
+  
     
   }
 }

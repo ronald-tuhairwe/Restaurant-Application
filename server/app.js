@@ -5,6 +5,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const userRouter = require("./routes/userRouter");
 const foodRouter = require("./routes/foodRouter");
+const infoRouter = require("./routes/informationRouter");
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(express.json());
 
 app.use("/", userRouter);
 app.use("/foods", foodRouter);
+app.use("/info",infoRouter);
 
 app.use((err, req, res, next) => {
   res.status(500).json({ success: false, data: err.message });

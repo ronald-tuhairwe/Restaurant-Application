@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder } from "@angular/forms";
 import { Router } from "@angular/router";
+import { ToastrService } from "ngx-toastr";
 import { StateService } from "./state.service";
 
 @Component({
@@ -20,7 +21,7 @@ import { StateService } from "./state.service";
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Location:</h4>
-                <p>Ludhiana, Punjab, IND</p>
+                <p>Robustor, FairField, USA </p>
               </div>
               <div class="open-hours">
                 <i class="bi bi-clock"></i>
@@ -38,14 +39,14 @@ import { StateService } from "./state.service";
                     href="/cdn-cgi/l/email-protection"
                     class="__cf_email__"
                     data-cfemail="2940474f46694c51484459454c074a4644"
-                    >[email&#160;protected]</a
+                    >Robustor@gmail.cook</a
                   >
                 </p>
               </div>
               <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Call:</h4>
-                <p>+91 **** **** **</p>
+                <p>+1 888 1234</p>
               </div>
             </div>
           </div>
@@ -58,7 +59,7 @@ import { StateService } from "./state.service";
             >
               <strong> We hire the Best to be the best</strong>
             </p>
-            <form [formGroup]="form" (ngSubmit)="onSubmit()" style="margin: 5%">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" style="margin: 5%" class="php-email-form">
               <div class="form-group block">
                 <div class="row">
                   <div class="m-2">
@@ -172,7 +173,7 @@ export class AddAdminComponent implements OnInit {
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private service: StateService
+    private service: StateService, private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {}
@@ -184,7 +185,7 @@ export class AddAdminComponent implements OnInit {
   onSubmit() {
     this.service
       .signUpAdmin(this.form.value)
-      .subscribe((resp) => alert(resp.data));
+      .subscribe((resp) =>  this.toastr.success(resp.data));
 
     this.router.navigate(["", "adminHome"]);
   }

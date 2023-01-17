@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { StateService } from './state.service';
 
 @Component({
@@ -17,7 +18,7 @@ import { StateService } from './state.service';
           [formGroup]="form"
           (ngSubmit)="addFood()"
           data-aos="fade-up"
-          data-aos-delay="100"
+          data-aos-delay="100" class="php-email-form"
         >
           <div class="row">
             <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
@@ -94,14 +95,14 @@ export class AddfoodComponent {
     information: [""],
   });
 
-  constructor(private router: Router, private formBuilder: FormBuilder,private service: StateService) {}
+  constructor(private router: Router, private formBuilder: FormBuilder,private service: StateService, private toastr: ToastrService) {}
 
   ngOnInit(): void {}
 
   addFood() {
     this.service
     .addFood(this.form.value)
-    .subscribe((resp) => alert(resp.data));
+    .subscribe((resp) =>  this.toastr.success(resp.data));
 
   this.router.navigate(["", "adminHome"]);
   }

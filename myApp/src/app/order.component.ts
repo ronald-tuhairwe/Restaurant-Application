@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { ToastrService } from "ngx-toastr";
 import { Ifood } from "./ifood";
 import { StateService } from "./state.service";
 
@@ -40,7 +41,7 @@ import { StateService } from "./state.service";
         </div>
         <div class="price" style="width:15%; marginTop:4%; marginLeft:70%">
           <strong
-            >Total : $122
+            >Total : {{price|currency}}
             <hr
           /></strong>
 
@@ -61,10 +62,16 @@ import { StateService } from "./state.service";
 })
 export class OrderComponent {
   orderArr!: Ifood[];
+price!:number;
 
-  constructor(private service: StateService) {
+
+  constructor(private service: StateService,private toastr: ToastrService) {
     this.service.orderSubject.subscribe((fd: Ifood[]) => {
       this.orderArr = fd;
+    
+      let c=0;
+      this.price = this.orderArr.map(it =>it.price)
+      .reduce(function(c,a){return( c +  a);})
     });
   }
 
@@ -72,6 +79,6 @@ export class OrderComponent {
     const user = JSON.parse(localStorage.getItem("USER")!);
     this.service
       .senderOrder(user.id, this.orderArr)
-      .subscribe((resp) => alert(resp.data));
+      .subscribe((resp) => this.toastr.success("Your order has beem sent,Thank you!"));
   }
 }

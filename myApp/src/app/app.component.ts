@@ -18,7 +18,7 @@ import { StateService } from "./state.service";
         >
           <div class="contact-info d-flex align-items-center">
             <i class="bi bi-phone d-flex align-items-center"
-              ><span>+91 **** **** **</span></i
+              ><span>+1 888 1234</span></i
             >
             <i class="bi bi-clock d-flex align-items-center ms-4"
               ><span> Mon-Sat: 11AM - 23PM</span></i
@@ -42,32 +42,32 @@ import { StateService } from "./state.service";
             <nav id="navbar" class="navbar order-last order-lg-0">
               <ul>
                 <li>
-                  <a class="nav-link scrollto active" >Home</a>
+                  <a class="nav-link scrollto active">Home</a>
                 </li>
 
                 <li>
-                  <a class="nav-link scrollto" >Tasty Menu</a>
+                  <a class="nav-link scrollto">Tasty Menu</a>
                 </li>
 
                 <li>
-                  <a class="nav-link scrollto" >Events</a>
+                  <a class="nav-link scrollto">Events</a>
                 </li>
                 <li>
-                  <a class="nav-link scrollto" >Chefs</a>
+                  <a class="nav-link scrollto">Chefs</a>
                 </li>
                 <li>
-                  <a class="nav-link scrollto" >Gallery</a>
+                  <a class="nav-link scrollto">Gallery</a>
                 </li>
                 <li>
-                  <a class="nav-link scrollto" >Contact</a>
+                  <a class="nav-link scrollto">Contact</a>
                 </li>
                 <li>
-                  <a class="nav-link scrollto" >Your Orders</a>
+                  <a class="nav-link scrollto">Your Orders</a>
                 </li>
               </ul>
               <i class="bi bi-list mobile-nav-toggle"></i>
             </nav>
-            <a  class="book-a-table-btn scrollto d-none d-lg-flex"
+            <a class="book-a-table-btn scrollto d-none d-lg-flex"
               >Book a table</a
             >
           </div>
@@ -90,7 +90,7 @@ import { StateService } from "./state.service";
                     <div class="address">
                       <i class="bi bi-geo-alt"></i>
                       <h4>Location:</h4>
-                      <p>Ludhiana, Punjab, IND</p>
+                      <p>Robustor, FairField, USA</p>
                     </div>
                     <div class="open-hours">
                       <i class="bi bi-clock"></i>
@@ -108,14 +108,15 @@ import { StateService } from "./state.service";
                           href="/cdn-cgi/l/email-protection"
                           class="__cf_email__"
                           data-cfemail="2940474f46694c51484459454c074a4644"
-                          >[email&#160;protected]</a
                         >
+                          Robustor@gmail.cook
+                        </a>
                       </p>
                     </div>
                     <div class="phone">
                       <i class="bi bi-phone"></i>
                       <h4>Call:</h4>
-                      <p>+91 **** **** **</p>
+                      <p>+1 888 1234</p>
                     </div>
                   </div>
                 </div>
@@ -304,7 +305,7 @@ import { StateService } from "./state.service";
                 <div class="footer-info">
                   <h3>Restaurant</h3>
                   <p>
-                    Ludhiana <br />
+                    Robustor <br />
                     Fairfield, USA
                   </p>
                   <div class="social-links mt-3">
@@ -400,7 +401,7 @@ import { StateService } from "./state.service";
         >
           <div class="contact-info d-flex align-items-center">
             <i class="bi bi-phone d-flex align-items-center"
-              ><span>+91 **** **** **</span></i
+              ><span>+1 888 1234</span></i
             >
             <i class="bi bi-clock d-flex align-items-center ms-4"
               ><span> Mon-Sat: 11AM - 23PM</span></i
@@ -418,6 +419,12 @@ import { StateService } from "./state.service";
           <div
             class="container-fluid container-xl d-flex align-items-center justify-content-lg-between"
           >
+            <img
+              src="assets/img/chefs/chefs-3.jpg"
+              alt=""
+              class="img-fluid rounded-circle m-2"
+              style="width: 5%"
+            />
             <h1 class="logo me-auto me-lg-0">
               <a href="#">Restaurant</a>
             </h1>
@@ -495,7 +502,7 @@ import { StateService } from "./state.service";
                 <div class="footer-info">
                   <h3>Restaurant</h3>
                   <p>
-                    Ludhiana <br />
+                    Robustor <br />
                     Fairfield, USA
                   </p>
                   <div class="social-links mt-3">
@@ -591,7 +598,7 @@ import { StateService } from "./state.service";
         >
           <div class="contact-info d-flex align-items-center">
             <i class="bi bi-phone d-flex align-items-center"
-              ><span>+91 **** **** **</span></i
+              ><span>+1 888 1234</span></i
             >
             <i class="bi bi-clock d-flex align-items-center ms-4"
               ><span> Mon-Sat: 11AM - 23PM</span></i
@@ -609,8 +616,14 @@ import { StateService } from "./state.service";
           <div
             class="container-fluid container-xl d-flex align-items-center justify-content-lg-between"
           >
+            <img
+              src="assets/img/chefs/chefs-3.jpg"
+              alt=""
+              class="img-fluid rounded-circle m-2"
+              style="width: 5%"
+            />
             <h1 class="logo me-auto me-lg-0">
-              <a href="#">Restaurant-ADIMN-DashBoard</a>
+              <a href="#">ADIMN-DashBoard</a>
             </h1>
             <nav id="navbar" class="navbar order-last order-lg-0">
               <ul>
@@ -631,6 +644,17 @@ import { StateService } from "./state.service";
                 <li>
                   <a class="nav-link scrollto" [routerLink]="['', 'addAdmin']"
                     >AddAdmin</a
+                  >
+                </li>
+
+                <li>
+                  <a class="nav-link scrollto" [routerLink]="['', 'bookings']"
+                    >Bookings
+                  </a>
+                </li>
+                <li>
+                  <a class="nav-link scrollto" [routerLink]="['', 'info']">
+                    Info</a
                   >
                 </li>
               </ul>
@@ -704,7 +728,8 @@ export class AppComponent implements DoCheck {
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private service: StateService,private toastr: ToastrService
+    private service: StateService,
+    private toastr: ToastrService
   ) {}
 
   ngDoCheck(): void {
@@ -725,17 +750,18 @@ export class AppComponent implements DoCheck {
     this.service.login(this.form1.value).subscribe((resp) => {
       if (resp.success) {
         const decoded = jwtDecode(resp.data) as any;
+
         if (decoded.role === "customer") {
           localStorage.setItem("USER", JSON.stringify(decoded));
           this.showLogin = false;
           this.showCustomer = true;
         } else {
           localStorage.setItem("USER", JSON.stringify(decoded));
-
           this.showAdmin = true;
         }
       }
-this.toastr.success(resp.data)
+      this.toastr.success("Successfully Login");
+    
     });
 
     this.form1.reset();
@@ -759,5 +785,6 @@ this.toastr.success(resp.data)
     this.showLogin = true;
     this.showCustomer = false;
     this.showAdmin = false;
+    this.toastr.success("Successfully LoggedOut");
   }
 }

@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { FormBuilder } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
+import { ToastrService } from "ngx-toastr";
 import { StateService } from "./state.service";
 
 @Component({
@@ -95,7 +96,7 @@ export class EditFoodComponent {
     private router: Router,
     private formBuilder: FormBuilder,
     private service: StateService,
-    private activate: ActivatedRoute
+    private toastr: ToastrService
   ) {
     this.updt = this.router.getCurrentNavigation()?.extras.state;
 
@@ -112,7 +113,7 @@ export class EditFoodComponent {
   updateFood() {
     this.service
       .updateFood(this.updt._id, this.form.value)
-      .subscribe((resp) => alert(resp.data));
+      .subscribe((resp) => this.toastr.success(resp.data));
 
     this.router.navigate(["", "adminHome"]);
   }
