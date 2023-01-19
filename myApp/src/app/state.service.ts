@@ -33,6 +33,7 @@ export class StateService {
     return this.http.patch<{ success: boolean; data: string }>(
       `http://localhost:3000/foods/food/${foodId}`,
       food
+
     );
   }
 

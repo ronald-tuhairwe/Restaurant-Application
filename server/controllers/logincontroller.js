@@ -8,7 +8,7 @@ exports.authenticate = (req, res, next) => {
   const [, token] = req.headers.authorization.split(" ");
   try {
     let permission = jwt.verify(token, SECRET);
-    res.status(200).json({ success: true, data: permission });
+    next();
   } catch (err) {
     res.status(400).json({ success: false, data: "Invalid JWT" });
   }

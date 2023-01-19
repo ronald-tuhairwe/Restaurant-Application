@@ -102,7 +102,7 @@ export class AddfoodComponent {
   addFood() {
     this.service
     .addFood(this.form.value)
-    .subscribe((resp) =>  this.toastr.success(resp.data));
+    .subscribe((resp) =>  this.toastr.success("The food added Succeffully"));
 
   this.router.navigate(["", "adminHome"]);
   }

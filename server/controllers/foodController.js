@@ -1,5 +1,20 @@
 const Food = require("../models/foods");
 const { ObjectId } = require("mongodb");
+const jwt = require("jsonwebtoken");
+let SECRET;
+
+exports.authenticate = (req, res, next) => {
+  const [, token] = req.headers.authorization.split(" ");
+  try {
+    let permission = jwt.verify(token, SECRET);
+    next();
+  } catch (err) {
+    res.status(400).json({ success: false, data: "Invalid JWT" });
+  }
+};
+
+
+
 
 exports.addFood = async (req, res, next) => {
   const newFood = new Food(req.body);
@@ -26,7 +41,6 @@ exports.getFoodById = async (req, res, next) => {
 
 exports.deleteFood = async (req, res, next) => {
   const id = ObjectId(req.params.foodId);
-  console.log(id);
   try {
     await Food.findByIdAndDelete(id);
     res.status(200).json({ success: true, data: "food deleted" });
@@ -37,9 +51,10 @@ exports.deleteFood = async (req, res, next) => {
 
 exports.updateFood = async (req, res, next) => {
   const newFood = req.body;
-  //   console.log(newFood, req.params);
+  const id = ObjectId(req.params.foodId);
+  console.log(newFood, id,"thus from edit");
   try {
-    await Food.findOneAndUpdate(req.params.foodId, req.body);
+    await Food.findByIdAndUpdate(id, req.body);
     res.status(200).json({ success: true, data: "food updated" });
   } catch (error) {
     res.status(200).json({ success: false, data: "Error updating food" });

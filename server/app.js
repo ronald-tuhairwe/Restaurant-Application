@@ -12,9 +12,22 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+const jwt = require("jsonwebtoken");
+let SECRET;
+
+const authenticate = (req, res, next) => {
+  const [, token] = req.headers.authorization.split(" ");
+  try {
+    let permission = jwt.verify(token, SECRET);
+    next();
+  } catch (err) {
+    res.status(400).json({ success: false, data: "Invalid JWT" });
+  }
+};
+
 app.use("/", userRouter);
-app.use("/foods", foodRouter);
-app.use("/info",infoRouter);
+app.use("/foods", authenticate, foodRouter);
+app.use("/info", authenticate, infoRouter);
 
 app.use((err, req, res, next) => {
   res.status(500).json({ success: false, data: err.message });

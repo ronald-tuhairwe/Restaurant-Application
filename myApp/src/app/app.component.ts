@@ -631,7 +631,7 @@ import { StateService } from "./state.service";
                   <a
                     class="nav-link scrollto active"
                     [routerLink]="['', 'adminHome']"
-                    >Home</a
+                    >FoodList</a
                   >
                 </li>
 
