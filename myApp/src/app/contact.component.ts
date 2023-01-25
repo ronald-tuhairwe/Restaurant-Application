@@ -72,6 +72,7 @@ export class ContactComponent {
       email: [""],
       subject: [""],
       information: [""],
+      dt: new Date()
     });
 
 

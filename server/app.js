@@ -26,8 +26,8 @@ const authenticate = (req, res, next) => {
 };
 
 app.use("/", userRouter);
-app.use("/foods", authenticate, foodRouter);
-app.use("/info", authenticate, infoRouter);
+app.use("/foods", foodRouter);
+app.use("/info",  infoRouter);
 
 app.use((err, req, res, next) => {
   res.status(500).json({ success: false, data: err.message });

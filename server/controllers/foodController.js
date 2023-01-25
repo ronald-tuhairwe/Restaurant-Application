@@ -3,15 +3,7 @@ const { ObjectId } = require("mongodb");
 const jwt = require("jsonwebtoken");
 let SECRET;
 
-exports.authenticate = (req, res, next) => {
-  const [, token] = req.headers.authorization.split(" ");
-  try {
-    let permission = jwt.verify(token, SECRET);
-    next();
-  } catch (err) {
-    res.status(400).json({ success: false, data: "Invalid JWT" });
-  }
-};
+
 
 
 

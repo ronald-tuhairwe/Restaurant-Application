@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
 import { Ifood } from "./ifood";
 import { StateService } from "./state.service";
@@ -65,13 +66,19 @@ export class OrderComponent {
 price!:number;
 
 
-  constructor(private service: StateService,private toastr: ToastrService) {
+  constructor(private service: StateService,private toastr: ToastrService,private router: Router,) {
     this.service.orderSubject.subscribe((fd: Ifood[]) => {
       this.orderArr = fd;
     
       let c=0;
       this.price = this.orderArr.map(it =>it.price)
-      .reduce(function(c,a){return( c +  a);})
+      .reduce(function(c,a){
+        return( c +  a);
+      
+      });
+
+
+
     });
   }
 
@@ -79,6 +86,10 @@ price!:number;
     const user = JSON.parse(localStorage.getItem("USER")!);
     this.service
       .senderOrder(user.id, this.orderArr)
-      .subscribe((resp) => this.toastr.success("Your order has beem sent,Thank you!"));
+      .subscribe((resp) => {
+        this.toastr.success("Your order has beem sent,Thank you!");
+        this.router.navigate(["", "menu"]);
+    
+    });
   }
 }

@@ -9,6 +9,7 @@ const infoSchema = new Schema(
         email: String,
         subject: String,
         information: String,
+        dt:String,
       },
     ],
     bookTable: [
@@ -20,6 +21,7 @@ const infoSchema = new Schema(
         time: String,
         people: String,
         message: String,
+        dt:String,
       },
     ],
   },

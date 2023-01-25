@@ -750,9 +750,12 @@ export class AppComponent implements DoCheck {
     this.service.login(this.form1.value).subscribe((resp) => {
       if (resp.success) {
         const decoded = jwtDecode(resp.data) as any;
+       
 
         if (decoded.role === "customer") {
           localStorage.setItem("USER", JSON.stringify(decoded));
+          localStorage.setItem("TOKEN", JSON.stringify(resp.data));
+
           this.showLogin = false;
           this.showCustomer = true;
         } else {

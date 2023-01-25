@@ -91,7 +91,11 @@ exports.addOrder = async (req, res, next) => {
     await User.updateOne(
       { _id: req.params.userId },
       {
-        $push: { "orders": order },
+        $push: { orders: order },
+        $currentDate: {
+          lastModified: true,
+          "orderDate.date": { $type: "timestamp" },
+        },
       }
     );
 

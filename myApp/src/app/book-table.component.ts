@@ -108,6 +108,8 @@ import { StateService } from "./state.service";
   styles: [],
 })
 export class BookTableComponent {
+ 
+
   form = this.formBuilder.nonNullable.group({
     name: [""],
     email: [""],
@@ -116,6 +118,7 @@ export class BookTableComponent {
     time: [""],
     people: [""],
     message: [""],
+    dt: new Date()
   });
 
   constructor(

@@ -1,13 +1,12 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { AdminHomeComponent } from "./admin-home.component";
 import { EditFoodComponent } from "./edit-food.component";
 import { AddfoodComponent } from "./addfood.component";
-
 
 import { OrderComponent } from "./order.component";
 import { MenuComponent } from "./menu.component";
@@ -19,14 +18,15 @@ import { BookTableComponent } from "./book-table.component";
 import { GalleryComponent } from "./gallery.component";
 import { ChefsComponent } from "./chefs.component";
 
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 
 import { AddAdminComponent } from "./add-admin.component";
 import { AdminOrdersComponent } from "./admin-orders.component";
 import { ToastrModule } from "ngx-toastr";
-import { InfoComponent } from './info.component';
-import { BookingComponent } from './booking.component';
+import { InfoComponent } from "./info.component";
+import { BookingComponent } from "./booking.component";
+import { AuthorizeInterceptor } from "./authorize.interceptor";
 
 @NgModule({
   declarations: [
@@ -34,7 +34,6 @@ import { BookingComponent } from './booking.component';
     AdminHomeComponent,
     EditFoodComponent,
     AddfoodComponent,
-
 
     OrderComponent,
     MenuComponent,
@@ -54,10 +53,10 @@ import { BookingComponent } from './booking.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule, ToastrModule.forRoot(),
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     RouterModule.forRoot([
       { path: "", redirectTo: "home", pathMatch: "full" },
-     
 
       { path: "home", component: HomeComponent },
       { path: "addFood", component: AddfoodComponent },
@@ -77,7 +76,13 @@ import { BookingComponent } from './booking.component';
       { path: "order", component: OrderComponent },
     ]),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthorizeInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

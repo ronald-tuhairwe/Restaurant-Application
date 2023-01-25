@@ -21,23 +21,26 @@ import { StateService } from "./state.service";
                 <h4 class="card-title">Incoming Orders Or Pending Orders</h4>
               </div>
               <div class="card-content" *ngFor="let usr of user">
-                <ul>
-                  <li>
-                    <a href="#">CustomerName: {{ usr.firstName }}</a>
-                  </li>
-                  <!-- <li class="dropdown"> -->
+               
+                  <ul>
+                    <li>
+                      <a href="#">CustomerName: {{ usr.firstName }}</a>
+                      <!-- <a href="#">CustomerName: {{ usr.orderDate.date }}</a> -->
+                    </li>
+                    <!-- <li class="dropdown"> -->
 
-                  <div *ngFor="let usr1 of usr.orders">
-                    <ul *ngFor="let usr1 of usr.orders">
-                      <li>
-                        item: {{ usr1.name }} - - - - - price: $
-                        {{ usr1.price }}
-                      </li>
-                    </ul>
-                  </div>
+                    <div *ngFor="let usr1 of usr.orders">
+                      <ul *ngFor="let usr2 of usr1">
+                        <li>
+                          item: {{ usr2.name }} - - - - - price: $
+                          {{ usr2.price }}
+                        </li>
+                      </ul>
+                    </div>
 
-                  <!-- </li> -->
-                </ul>
+                    <!-- </li> -->
+                  </ul>
+              
               </div>
             </div>
           </div>
@@ -48,14 +51,17 @@ import { StateService } from "./state.service";
   styles: [],
 })
 export class AdminOrdersComponent implements OnInit {
-  user!: Iuser2[];
+  user!: any[];
 
   constructor(private service: StateService) {
     this.service.getAllCustomers().subscribe((resp) => {
       let array = resp.data;
-      console.log(array);
-      this.user = array.filter((itm) => itm.orders.length !== 0);
-      console.log(this.user);
+     
+
+      this.user  = array.filter((itm) => itm.orders.length !== 0);
+      console.log(this.user)
+
+      
     });
   }
 

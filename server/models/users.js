@@ -9,14 +9,16 @@ const userSchema = new Schema(
     password: { type: String, required: true },
     role: String,
     orders: [
-      [{
-        name: String,
-        category: String,
-        price: Number,
-        information: String,
-      }]
+      [
+        {
+          name: String,
+          category: String,
+          price: Number,
+          information: String,
+          // lastModified: ISODate(),
+        },
+      ],
     ],
-   
   },
   {
     versionKey: false,

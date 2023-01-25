@@ -18,10 +18,10 @@ import { StateService } from "./state.service";
         <div class="row" data-aos="fade-up" data-aos-delay="100">
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="menu-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-starters">Foods</li>
-              <li data-filter=".filter-salads">Drinks</li>
-              <li data-filter=".filter-specialty">Sweety</li>
+              <li data-filter="*" class="filter-active" (click)="all()">All</li>
+              <li (click)="foods()">Foods</li>
+              <li (click)="drinks()">Drinks</li>
+              <li (click)="sweety()">Sweety</li>
             </ul>
           </div>
         </div>
@@ -108,15 +108,16 @@ import { StateService } from "./state.service";
                   <div class="col-lg-8 details order-2 order-lg-1">
                     <h3>Architecto ut aperiam autem id</h3>
                     <p class="fst-italic">
-                      Qui laudantium consequatur laborum sit qui ad sapiente
-                      dila parde sonata raqer a videna mareta paulona marka
+                      One of the best dishes that give you the Best feel of the
+                      American and Carribean dishes with the natural scent of
+                      herbs and freshness
                     </p>
                     <p>
-                      Et nobis maiores eius. Voluptatibus ut enim blanditiis
-                      atque harum sint. Laborum eos ipsum ipsa odit magni.
-                      Incidunt hic ut molestiae aut qui. Est repellat minima
-                      eveniet eius et quis magni nihil. Consequatur dolorem
-                      quaerat quos qui similique accusamus nostrum rem vero
+                      My favorite food is seafood. I love seafood because it is
+                      so healthy and when you cook it right, it can be delicious
+                      also. I am going to tell you about the different kinds of
+                      fish that I like. My favorite fish to eat is salmon salmon
+                      beats out any other type of fish in the se
                     </p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
@@ -133,15 +134,19 @@ import { StateService } from "./state.service";
                   <div class="col-lg-8 details order-2 order-lg-1">
                     <h3>Et blanditiis nemo veritatis excepturi</h3>
                     <p class="fst-italic">
-                      Qui laudantium consequatur laborum sit qui ad sapiente
-                      dila parde sonata raqer a videna mareta paulona marka
+                      One of the best dishes that give you the Best feel of the
+                      American and Carribean dishes with the natural scent of
+                      herbs and freshness
                     </p>
                     <p>
-                      Ea ipsum voluptatem consequatur quis est. Illum error
-                      ullam omnis quia et reiciendis sunt sunt est. Non aliquid
-                      repellendus itaque accusamus eius et velit ipsa
-                      voluptates. Optio nesciunt eaque beatae accusamus lerode
-                      pakto madirna desera vafle de nideran pal
+                      r the Star Spangled Banner being sung in Fenway Park. The
+                      scrumptious smell of blueberries makes me think of
+                      towering blueberry bushes that are over my head. I choose
+                      a ripe round strawberry and it feels wet and firm as I
+                      plop it in my mouth. As I bite down on the tender
+                      strawberry the flavorful juice makes my taste buds
+                      explode. Then I toss a sweet succulent strawberry covered
+                      in light whipped cream into my satisfied belly.
                     </p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
@@ -158,16 +163,21 @@ import { StateService } from "./state.service";
                   <div class="col-lg-8 details order-2 order-lg-1">
                     <h3>Impedit facilis occaecati odio neque aperiam sit</h3>
                     <p class="fst-italic">
-                      Eos voluptatibus quo. Odio similique illum id quidem non
-                      enim fuga. Qui natus non sunt dicta dolor et. In
-                      asperiores velit quaerat perferendis aut
+                      One of the best dishes that give you the Best feel of the
+                      American and Carribean dishes with the natural scent of
+                      herbs and freshness
                     </p>
                     <p>
-                      Iure officiis odit rerum. Harum sequi eum illum corrupti
-                      culpa veritatis quisquam. Neque necessitatibus illo rerum
-                      eum ut. Commodi ipsam minima molestiae sed laboriosam a
-                      iste odio. Earum odit nesciunt fugiat sit ullam. Soluta et
-                      harum voluptatem optio quae
+                      Fettuccini Alfredo with chicken and peas is a delicious
+                      and flavorful meal everyone will absolutely love! The
+                      creamy sauce is cheesy, warm, and thick. This scrumptious
+                      sauce coats the long and squiggly fettuccini noodles. The
+                      tender, juicy chicken pieces are another wonderful part of
+                      this tasty dish. The small, green peas add color and
+                      flavor to this delectable entrée. This satisfying, awesome
+                      dish would go great with some crispy, colorful salad
+                      filled with crunchy Romaine lettuce, black olives, red
+                      peppers,
                     </p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
@@ -191,11 +201,12 @@ import { StateService } from "./state.service";
                       voluptas iure porro quis delectus
                     </p>
                     <p>
-                      Eaque consequuntur consequuntur libero expedita in
-                      voluptas. Nostrum ipsam necessitatibus aliquam fugiat
-                      debitis quis velit. Eum ex maxime error in consequatur
-                      corporis atque. Eligendi asperiores sed qui veritatis
-                      aperiam quia a laborum inventore
+                      Fettuccini Alfredo with chicken and peas is a delicious
+                      and flavorful meal everyone will absolutely love! The
+                      creamy sauce is cheesy, warm, and thick. This scrumptious
+                      sauce coats the long and squiggly fettuccini noodles. The
+                      tender, juicy chicken pieces are another wonderful part of
+                      this tasty dish. The small peppers,
                     </p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
@@ -218,10 +229,14 @@ import { StateService } from "./state.service";
                       quia.
                     </p>
                     <p>
-                      Exercitationem nostrum omnis. Ut reiciendis repudiandae
-                      minus. Omnis recusandae ut non quam ut quod eius qui.
-                      Ipsum quia odit vero atque qui quibusdam amet. Occaecati
-                      sed est sint aut vitae molestiae voluptate vel
+                      The creamy sauce is cheesy, warm, and thick. This
+                      scrumptious sauce coats the long and squiggly fettuccini
+                      noodles. The tender, juicy chicken pieces are another
+                      wonderful part of this tasty dish. The small, green peas
+                      add color and flavor to this delectable entrée. This
+                      satisfying, awesome dish would go great with some crispy,
+                      colorful salad filled with crunchy Romaine lettuce, black
+                      olives, red peppers,
                     </p>
                   </div>
                   <div class="col-lg-4 text-center order-1 order-lg-2">
@@ -243,24 +258,45 @@ import { StateService } from "./state.service";
 })
 export class MenuComponent {
   food!: Ifood[];
-  orderArray:Ifood[] =[]
+  orderArray: Ifood[] = [];
 
   constructor(private service: StateService, private toastr: ToastrService) {
-    this.service.getAllFood().subscribe((fd: any)=> {
-      this.food=fd.data
-     
+    this.service.getAllFood().subscribe((fd: any) => {
+      this.food = fd.data;
     });
   }
-  
- showCase(){
-  this.toastr.success("order placed")
- }
+
+  showCase() {
+    this.toastr.success("order placed");
+  }
+
+  all() {
+    this.service.getAllFood().subscribe((fd: any) => {
+      this.food = fd.data;
+    });
+  }
+
+  foods() {
+    this.service.getAllFood().subscribe((fd: any) => {
+      this.food = fd.data.filter((itm: any) => itm.category === "food");
+    });
+  }
+
+  drinks() {
+    this.service.getAllFood().subscribe((fd: any) => {
+      this.food = fd.data.filter((itm: any) => itm.category === "drink");
+    });
+  }
+
+  sweety() {
+    this.service.getAllFood().subscribe((fd: any) => {
+      this.food = fd.data.filter((itm: any) => itm.category === "sweety");
+    });
+  }
 
   order(item: Ifood) {
-    this.orderArray.push(item)
-    this.service.orderSubject.next(this.orderArray)
-   this.showCase()
-  
-    
+    this.orderArray.push(item);
+    this.service.orderSubject.next(this.orderArray);
+    this.showCase();
   }
 }

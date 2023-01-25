@@ -93,6 +93,7 @@ export class AddfoodComponent {
     category: [""],
     price: [""],
     information: [""],
+   
   });
 
   constructor(private router: Router, private formBuilder: FormBuilder,private service: StateService, private toastr: ToastrService) {}
