@@ -7,6 +7,8 @@ const userRouter = require("./routes/userRouter");
 const foodRouter = require("./routes/foodRouter");
 const infoRouter = require("./routes/informationRouter");
 
+require('dotenv').config();
+
 const app = express();
 
 app.use(cors());
@@ -37,7 +39,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/FinalYearProject").then(() => {
   console.log("############## DataBase Connected ! ###################");
   console.log("                    -------------");
 
-  app.listen(3000, () => {
+  app.listen(process.env.PORT || 3000, () => {
     console.log(
       "*************** Am Listening at port 3000 *********************************"
     );
