@@ -2,8 +2,8 @@ import { Component } from "@angular/core";
 
 @Component({
   selector: "app-home",
-  template: ` 
-    <section id="hero" class="d-flex align-items-center" >
+  template: `
+    <section id="hero" class="d-flex align-items-center">
       <div
         class="container position-relative text-center text-lg-start"
         data-aos="zoom-in"
@@ -30,7 +30,7 @@ import { Component } from "@angular/core";
             data-aos-delay="200"
           >
             <a
-              href="https://www.youtube.com/watch?v=xTTzN3B1uUg"
+              href="https://www.youtube.com/watch?v=hpAv3gXJA4w&ab_channel=RestaurantReviewsWorldwide"
               class="glightbox play-btn"
             ></a>
           </div>
